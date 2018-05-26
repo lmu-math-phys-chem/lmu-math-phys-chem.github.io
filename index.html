@@ -26,7 +26,6 @@
 <p>Bild: Zurückgelegte Stecke im t-v-Diagramm (als rechteckige Fläche unter dem Graphen)</p>
 
 	<button class="collapsible">Beispiel 2: \(W=Fs\)</button>
-
 	<div class="content">
 	  <p>Erklärung: Wir suchen nach einer sinnvollen Definition der physikalischen Größe Arbeit \(W\). Ein Körper soll um eine bestimmte Strecke \(s\) verschoben werden, hierbei wird nach unserem alltäglichen Verständnis Arbeit verrichtet. Wovon hängt es nun ab, wie viel Arbeit verrichtet wird? Die Ursache unserer Anstrengung ist klar eine Kraft, die uns entgegenwirkt: Könnten wird die Reibungskraft, die in diesem Fall wirkt, vollständig abschalten, dann würde der Körper durch einen minimalen Stups eine beliebig große Strecke zurücklegen, ohne weitere Anstrengung. 
 <!-- Geht hier evtl. die Intuition für den Zusammenhang zwischen Masse und Trägheit verloren? -->
@@ -40,7 +39,7 @@ Je größer die Kraft ist, die uns entgegenwirkt, umso mehr Anstrengung kostet e
 
 <p>Ein Gegenbeispiel zeigt schnell, dass der Ansatz \(s(t)=v(t)\cdot t\) nicht richtig sein kann.
 <!-- Das ausführliche Gegenbeispiel soll wieder versteckt sein -->
-Ist zum Beispiel \(v(t)=a\cdot t\) mit \(a=1\,\dfrac{\rm m}/{\rm s^2}\) (das Auto wird im Verlauf der Zeit immer schneller, beginnend bei Null), dann wäre \(s(t)=v(t)\cdot t=(a\cdot t)\cdot t=a\cdot t^2 und nach \(t=1\,{\rm s}\) wäre die zurückgelegte Strecke \(s(1\,{\rm s})=1\,{\rm m}\). Die gleiche Strecke legt aber auch ein Auto zurück, das von Anfang an mit konstanter Geschwindigkeit \(v=1\,\dfrac{\rm m}{\rm s}\) fährt. Intuitiv erwartet man, dass das zweite Auto weiter kommt als das erste, die Formel \(s(t)=v(t)\cdot t\) kann also nicht richtig sein.</p>
+Ist zum Beispiel \(v(t)=a\cdot t\) mit \(a=1\,\frac{\rm m}{\rm s^2}\) (das Auto wird im Verlauf der Zeit immer schneller, beginnend bei Null), dann wäre \(s(t)=v(t)\cdot t=(a\cdot t)\cdot t=a\cdot t^2\) und nach \(t=1\,{\rm s}\) wäre die zurückgelegte Strecke \(s(1\,{\rm s})=1\,{\rm m}\). Die gleiche Strecke legt aber auch ein Auto zurück, das von Anfang an mit konstanter Geschwindigkeit \(v=1\,\frac{\rm m}{\rm s}\) fährt. Intuitiv erwartet man, dass das zweite Auto weiter kommt als das erste, die Formel \(s(t)=v(t)\cdot t\) kann also nicht richtig sein.</p>
 
 <p>Wie lässt sich der richtige Zusammenhang finden? Dafür unterteilt man das Zeitintervall \([t_{\rm Anfang}, t_{\rm Ende}]\) in viele kleine Abschnitte, wobei jeder Abschnitt so klein ist, dass dort die Geschwindigkeit nahezu konstant ist. In einem solchen Abschnitt \([t_i,t_i+\Delta t]\), kann die Geschwindigkeit als näherungsweise konstant angenommen werden, sodass die Formel für konstante Geschwindigkeit anwendbar ist:
 
@@ -84,27 +83,27 @@ Die Lösung des Integrals errechnet sich also aus der Differenz der Funktionswer
 
 <p>Nun also zur eigentlichen Lösung eines Integrals. Das Aufstellen der Stammfunktion erweist sich nicht immer als trivial, aber es gibt eine Reihe von Tricks, die diese Herausforderung vereinfachen.
 
-Zunächst ist es immer sinnvoll, multiplikative Konstanten zu erkennen, welche nicht von der Integrationsvariablen abhängen. Diese können dann vor das Integral gezogen werden. 
+Zunächst ist es immer sinnvoll, multiplikative Konstanten zu erkennen, welche nicht von der Integrationsvariablen abhängen. Diese können dann vor das Integral gezogen werden. </p>
 
-	<button class ="collapsible">Beispiel 1: \(f(x) = 2x\)</button>
+	<button class="collapsible">Beispiel 1: \(f(x) = 2x\)</button>
 	<div class="content">
 		<p>\(\int_a^b f(x) {\rm d}x = \int_a^b 2x {\rm d}x = 2\int_a^b x {\rm d}x\)</p>
 	</div>
 
 	<button class="collapsible">Beispiel 2: \(g(x, y) = x^2\cdot y^2\)</button>
 	<div class="content">
-		<p>\(\int_a^b g(x, y) {\rm d}y = \int_a^b x^2\cdot y^2 {\rm d}y = x^2\cdot \int_a^b y^2 {\rm d}y\)
-		Diese Separation ist nur gültig, wenn x nicht von y abhängt!</p>
+		<p>\(\int_a^b g(x, y) {\rm d}y = \int_a^b x^2\cdot y^2 {\rm d}y = x^2\cdot \int_a^b y^2 {\rm d}y\)<br>
+		Diese Separation ist nur gültig, wenn \(x\) nicht von \(y\) abhängt!</p>
 	</div>
 
-	Für manche Funktionen wie Potenzfunktionen lässt sich die Stammfunktion sehr einfach bestimmen, indem man sich fragt: “Welche Funktion ergibt abgeleitet \(f(x)\)?” Wir wissen, dass für eine Funktion der Form \(f(x) = x^n\) die Ableitung \(f’(x) = nx^{n-1}/) für alle \(n\) \in \(\C\) ist. Die Ableitung von \(\dfrac{1}{n+1} x^{n+1}\) ist demnach \(x^n\), folglich ist \dfrac{1}{n+1} x^{n+1}\) Stammfunktion von \(x^n\). Umgangssprachlich spricht man wegen diesem einfachen Zusammenhang auch von “Aufleiten”. Die Relation gilt wohlgemerkt für alle komplexen \(n\) außer \(-1\), also auch für z.B. Wurzeln mit \(n = \dfrac{1}{2}\) oder für negative Exponenten wie \(x^{-2} = \dfrac{1}{x^2}\). Im Spezialfall \(n = -1\) ist diese Stammfunktion nicht anwendbar, da dann durch Null geteilt würde. Gibt es eine andere Funktion, deren Ableitung \(\dfrac{1}{x}\) ist? Ja, nämlich den natürlichen Logarithmus \(\ln{x}\).</p>
+<p>Für manche Funktionen wie Potenzfunktionen lässt sich die Stammfunktion sehr einfach bestimmen, indem man sich fragt: “Welche Funktion ergibt abgeleitet \(f(x)\)?” Wir wissen, dass für eine Funktion der Form \(f(x) = x^n\) die Ableitung \(f’(x) = nx^{n-1}\) für alle \(n \in \mathbb{C}\) ist. Die Ableitung von \(\frac{1}{n+1} x^{n+1}\) ist demnach \(x^n\), folglich ist \(\frac{1}{n+1} x^{n+1}\) Stammfunktion von \(x^n\). Umgangssprachlich spricht man wegen diesem einfachen Zusammenhang auch von “Aufleiten”. Die Relation gilt wohlgemerkt für alle komplexen \(n\) außer \(-1\), also auch für z.B. Wurzeln mit \(n = \frac{1}{2}\) oder für negative Exponenten wie \(x^{-2} = \frac{1}{x^2}\). Im Spezialfall \(n = -1\) ist diese Stammfunktion nicht anwendbar, da dann durch Null geteilt würde. Gibt es eine andere Funktion, deren Ableitung \(\frac{1}{x}\) ist? Ja, nämlich den natürlichen Logarithmus \(\ln{x}\).</p>
 
 <p>Auch die Stammfunktionen der trigonometrischen Funktionen \(\sin{x}\) und \(\cos{x}\) lassen sich vergleichsweise einfach bestimmen, siehe folgende Abbildung:
 
 <!-- Bild mit “Kreislauf” sin(x)->cos(x)->-sin(x)->-cos(x)->sin(x) und Pfeilen in beide Richtungen (Ableiten und Integrieren) --></p>
 
 <h2>Partielle Integration</h2>
-<p>Es gibt zwei Techniken, die beim Lösen von Integralen hilfreich sind: Partielle Integration und Substitution. Beide Techniken lösen das Integral nicht, sondern formen es in ein anderes Integral um, das - so die Hoffnung - einfacher zu lösen ist. Beide Techniken basieren auf Ableitungsregeln: Die Partielle Integration folgt aus der Produktregel, die Substitution aus der Kettenregel.</p>
+<p>Es gibt zwei Techniken, die beim Lösen von Integralen hilfreich sind: Partielle Integration und Substitution. Beide Techniken lösen das Integral nicht, sondern formen es in ein anderes Integral um, das – so die Hoffnung – einfacher zu lösen ist. Beide Techniken basieren auf Ableitungsregeln: Die Partielle Integration folgt aus der Produktregel, die Substitution aus der Kettenregel.</p>
 
 <h3>Partielle Integration - Herleitung</h3>
 
@@ -112,7 +111,7 @@ Zunächst ist es immer sinnvoll, multiplikative Konstanten zu erkennen, welche n
 
 \[(f\cdot g)’(x) = f’(x)\cdot g(x) + f(x)\cdot g’(x)\]
 
-Integrieren wir nun auf beiden Seiten nach x im Intervall \([a,b]\), dann erhalten wir
+Integrieren wir nun auf beiden Seiten über \(x\) im Intervall \([a,b]\), dann erhalten wir
 
 \[\int_a^b {\rm d}x (f\cdot g)’(x) = \int_a^b {\rm d}x f’(x)\cdot g(x) + \int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
@@ -126,9 +125,12 @@ Nun können wir die Gleichung nach dem ersten Integral auflösen, indem wir das 
 
 Dies ist die Formel der partiellen Integration. Sie ist unter folgenden Umständen hilfreich:
 
-Der Integrand lässt sich als Produkt zweier Funktionen \(f’(x)\) und \(g(x)\) schreiben.
-Für eine der Funktionen (nämlich \(f’(x)\)) ist die Stammfunktion \(f(x)\) bekannt.
-Das Integral \(\int {\rm d}x f(x)\cdot g’(x)\) ist einfacher zu berechnen als das ursprüngliche Integral \(\int {\rm d}x \(f’(x)\cdot g(x)\).</p>
+<ul>
+	<li>Der Integrand lässt sich als Produkt zweier Funktionen \(f’(x)\) und \(g(x)\) schreiben.</li>
+	<li>Für eine der Funktionen (nämlich \(f’(x)\)) ist die Stammfunktion \(f(x)\) bekannt.</li>
+	<li>Das Integral \(\int {\rm d}x f(x)\cdot g’(x)\) ist einfacher zu berechnen als das ursprüngliche Integral \(\int {\rm d}x ’(x)\cdot g(x)\).</li>
+</ul>
+</p>
 	
 	<script>
 		clickableBoxes();
