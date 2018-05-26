@@ -36,91 +36,99 @@ Je größer die Kraft ist, die uns entgegenwirkt, umso mehr Anstrengung kostet e
 
 <!-- Bild: Geleistete Arbeit im s-F-Diagramm (als rechteckige Fläche unter dem Graphen) -->
 
-In beiden Beispielen wurde angenommen, dass die beiden Faktoren unabhängig voneinander sind. Was passiert aber, wenn die Momentangeschwindigkeit abhängig vom Zeitpunkt ist, also v=v(t)? Gilt dann einfach s(t)=v(t)*t? Analog: Was passiert, wenn die Kraft F sich im Verlauf des Wegs verändert, also F=F(s) ist, wie kann dann die Arbeit berechnet werden?
+<p>In beiden Beispielen wurde angenommen, dass die beiden Faktoren unabhängig voneinander sind. Was passiert aber, wenn die Momentangeschwindigkeit abhängig vom Zeitpunkt ist, also \(v=v(t)\)? Gilt dann einfach \(s(t)=v(t)\cdot t\)? Analog: Was passiert, wenn die Kraft \(F\) sich im Verlauf des Wegs verändert, also \(F=F(s)\) ist, wie kann dann die Arbeit berechnet werden?</p>
 
-Ein Gegenbeispiel zeigt schnell, dass der Ansatz s(t)=v(t)*t nicht richtig sein kann.
-// Das ausführliche Gegenbeispiel soll wieder versteckt sein
-Ist zum Beispiel v(t)=a*t mit a=1m/s^2 (das Auto wird im Verlauf der Zeit immer schneller, beginnend bei Null), dann wäre s(t)=v(t)*t=(a*t)*t=a*t^2 und nach t=1s wäre die zurückgelegte Strecke s(1s)=1m. Die gleiche Strecke legt aber auch ein Auto zurück, das von Anfang an mit konstanter Geschwindigkeit v=1m/s fährt. Intuitiv erwartet man, dass das zweite Auto weiter kommt als das erste, die Formel s(t)=v(t)*t kann also nicht richtig sein.
+<p>Ein Gegenbeispiel zeigt schnell, dass der Ansatz \(s(t)=v(t)\cdot t\) nicht richtig sein kann.
+<!-- Das ausführliche Gegenbeispiel soll wieder versteckt sein -->
+Ist zum Beispiel \(v(t)=a\cdot t\) mit \(a=1\,\dfrac{\rm m}/{\rm s^2}\) (das Auto wird im Verlauf der Zeit immer schneller, beginnend bei Null), dann wäre \(s(t)=v(t)\cdot t=(a\cdot t)\cdot t=a\cdot t^2 und nach \(t=1\,{\rm s}\) wäre die zurückgelegte Strecke \(s(1\,{\rm s})=1\,{\rm m}\). Die gleiche Strecke legt aber auch ein Auto zurück, das von Anfang an mit konstanter Geschwindigkeit \(v=1\,\dfrac{\rm m}{\rm s}\) fährt. Intuitiv erwartet man, dass das zweite Auto weiter kommt als das erste, die Formel \(s(t)=v(t)\cdot t\) kann also nicht richtig sein.</p>
 
-Wie lässt sich der richtige Zusammenhang finden? Dafür unterteilt man das Zeitintervall [t_{Anfang}, t_{Ende}] in viele kleine Abschnitte, wobei jeder Abschnitt so klein ist, dass dort die Geschwindigkeit nahezu konstant ist. In einem solchen Abschnitt [t_i,t_i+\Delta t], kann die Geschwindigkeit als näherungsweise konstant angenommen werden, sodass die Formel für konstante Geschwindigkeit anwendbar ist:
+<p>Wie lässt sich der richtige Zusammenhang finden? Dafür unterteilt man das Zeitintervall \([t_{\rm Anfang}, t_{\rm Ende}]\) in viele kleine Abschnitte, wobei jeder Abschnitt so klein ist, dass dort die Geschwindigkeit nahezu konstant ist. In einem solchen Abschnitt \([t_i,t_i+\Delta t]\), kann die Geschwindigkeit als näherungsweise konstant angenommen werden, sodass die Formel für konstante Geschwindigkeit anwendbar ist:
 
-\Delta s_i = v(t_i)\Delta t 
-// Daneben ein Bild mit einer einzelnen Rechteckssäule über einem ausgewählten Intervall
+\[\Delta s_i = v(t_i)\Delta t\]
+<!-- Daneben ein Bild mit einer einzelnen Rechteckssäule über einem ausgewählten Intervall -->
 
 Um die insgesamt zurückgelegte Strecke zu finden, müssen alle Teilstrecken aufsummiert werden:
 
-s = \sum_i \Delta s_i = \sum_i v(t_i)\Delta t
-// Daneben ein Bild mit vollständiger “Säulenzerlegung”
+\[s = \sum_i \Delta s_i = \sum_i v(t_i)\Delta t\]
+<!-- Daneben ein Bild mit vollständiger “Säulenzerlegung” -->
 
-Macht man die Abschnitte [t_i,t_i+\Delta t] immer kleiner, so wird die Abweichung vom wahren Wert immer geringer. 
-// Daneben das Applet https://www.geogebra.org/m/QKQg6arS angepasst an das Beispiel
+Macht man die Abschnitte \([t_i,t_i+\Delta t]\) immer kleiner, so wird die Abweichung vom wahren Wert immer geringer. 
+<!-- Daneben das Applet https://www.geogebra.org/m/QKQg6arS angepasst an das Beispiel -->
 
 Wir sehen, dass der wahre Wert der zurückgelegten Strecke der Fläche zwischen dem Graphen und der Rechtsachse entspricht. Diesen Wert nennt man das Integral der Geschwindigkeit nach der Zeit und schreibt ihn als
 
-s=\int_{t_{Anfang}}^{t_{Ende}} ds = \int_{t_{Anfang}}^{t_{Ende}} v(t)dt
+\[s=\int_{t_{\rm Anfang}}^{t_{\rm Ende}} ds = \int_{t_{\rm Anfang}}^{t_{\rm Ende}} v(t)dt\]
 
-Das Integrationszeichen ist ein stilisiertes S (für Summe), da die Integration eigentlich nur die Summation kleiner Rechtecksflächen über unendlich kleinen Abschnitten (infinitesimal kleinen Intervallen) darstellt. Der Summationsindex i fällt weg, weil die Anzahl der Abschnitte nun nicht mehr gezählt werden kann (überabzählbar ist). Es werden nur noch die Grenzen des Gesamtintervalls t_{Anfang} und t_{Ende} angegeben.
+Das Integrationszeichen ist ein stilisiertes S (für Summe), da die Integration eigentlich nur die Summation kleiner Rechtecksflächen über unendlich kleinen Abschnitten (infinitesimal kleinen Intervallen) darstellt. Der Summationsindex \(i\) fällt weg, weil die Anzahl der Abschnitte nun nicht mehr gezählt werden kann (überabzählbar ist). Es werden nur noch die Grenzen des Gesamtintervalls \(t_{\rm Anfang}\) und \(t_{\rm Ende}\) angegeben.</p>
 
 
-Integrale – Stammfunktion und Lösung
+<h2>Integrale – Stammfunktion und Lösung</h2>
 
-Der Schlüssel zur Lösung des Integrals liegt in der so genannten Stammfunktion. Nehmen wir an, zur Funktion f(x) gibt es eine Funktion F(x), für die gilt:
+<p>Der Schlüssel zur Lösung des Integrals liegt in der so genannten Stammfunktion. Nehmen wir an, zur Funktion \(f(x)\) gibt es eine Funktion \(F(x)\), für die für alle \(x\) im Definitionsbereich von \(f(x)\) gilt:
 
-F’(x) = f(x)
+\[F’(x) = f(x)\]
 
-F(x) nennt man dann die Stammfunktion von f(x). Die Fläche einer der infinitesimal kleinen Rechtecksflächen lässt sich über den Differentialquotienten von F(x) ausdrücken:
+\(F(x)\) nennt man dann die Stammfunktion von \(f(x)\). 
+
+<!-- Wie ausführlich soll auf den HDI eingegangen werden? Reicht ein Verweis auf MFNF?
+	Die Fläche einer der infinitesimal kleinen Rechtecksflächen lässt sich über den Differentialquotienten von F(x) ausdrücken:
 
 // jeweils \lim_{h \to 0}
 \int_a^{a+h} f(x) dx = f(a)*h = F’(a)*h = ((F(a+h) - F(a))/h * h = F(a+h)-F(a)
 
 // Wendet man diese Methode für alle Rechtecksflächen im Intervall [a, b] an, kürzen sich 
 // sämtliche Summanden außer F(b) und F(a) weg. Als Ergebnis des Integrals bleibt dann
-// \int_a^b f(x) dx = F(b) - F(a) stehen.
-Die Lösung des Integrals errechnet sich also aus der Differenz der Funktionswerte der Stammfunktion am End- und Startpunkt der Integration.
+// \int_a^b f(x) dx = F(b) - F(a) stehen. -->
+\[\int_a^b f(x) {\rm d}x = F(b) - F(a)\]
+Die Lösung des Integrals errechnet sich also aus der Differenz der Funktionswerte der Stammfunktion am End- und Startpunkt der Integration.</p>
 
-Nun also zur eigentlichen Lösung eines Integrals. Das Aufstellen der Stammfunktion erweist sich nicht immer als trivial, aber es gibt eine Reihe von Tricks, die diese Herausforderung vereinfachen.
+<p>Nun also zur eigentlichen Lösung eines Integrals. Das Aufstellen der Stammfunktion erweist sich nicht immer als trivial, aber es gibt eine Reihe von Tricks, die diese Herausforderung vereinfachen.
 
 Zunächst ist es immer sinnvoll, multiplikative Konstanten zu erkennen, welche nicht von der Integrationsvariablen abhängen. Diese können dann vor das Integral gezogen werden. 
 
-Beispiel 1: f(x) = 2*x
-\int_a^b f(x) dx = \int_a^b 2*x dx = 2*\int_a^b x dx
+	<button class ="collapsible">Beispiel 1: \(f(x) = 2x\)</button>
+	<div class="content">
+		<p>\(\int_a^b f(x) {\rm d}x = \int_a^b 2x {\rm d}x = 2\int_a^b x {\rm d}x\)</p>
+	</div>
 
-Beispiel 2: g(x, y) = x^2*y^2
-\int_a^b g(x, y) dy = \int_a^b x^2*y^2 dy = x^2*\int_a^b y^2 dy
-Diese Separation ist nur gültig, wenn x nicht von y abhängt!
+	<button class="collapsible">Beispiel 2: \(g(x, y) = x^2\cdot y^2\)</button>
+	<div class="content">
+		<p>\(\int_a^b g(x, y) {\rm d}y = \int_a^b x^2\cdot y^2 {\rm d}y = x^2\cdot \int_a^b y^2 {\rm d}y\)
+		Diese Separation ist nur gültig, wenn x nicht von y abhängt!</p>
+	</div>
 
-Für manche Funktionen wie Potenzfunktionen lässt sich die Stammfunktion sehr einfach bestimmen, indem man sich fragt: “Welche Funktion ergibt abgeleitet f(x)?” Wir wissen, dass für eine Funktion der Form f(x) = x^n die Ableitung f’(x) = n*x^{n-1} für alle n \in \mathbb{C} ist. Die Ableitung von 1/(n+1) x^{n+1} ist demnach x^n, folglich ist 1/(n+1) x^{n+1} Stammfunktion von x^n. Umgangssprachlich spricht man wegen diesem einfachen Zusammenhang auch von “Aufleiten”. Die Relation gilt wohlgemerkt für alle komplexen n außer -1, also auch für z.B. Wurzeln mit n = 1/2 oder für negative Exponenten wie x^{-2} = 1/x^2. Im Spezialfall n = -1 ist diese Stammfunktion nicht anwendbar, da dann durch Null geteilt würde. Gibt es eine andere Funktion, deren Ableitung 1/x ist? Ja, nämlich den natürlichen Logarithmus ln(x).
+	Für manche Funktionen wie Potenzfunktionen lässt sich die Stammfunktion sehr einfach bestimmen, indem man sich fragt: “Welche Funktion ergibt abgeleitet \(f(x)\)?” Wir wissen, dass für eine Funktion der Form \(f(x) = x^n\) die Ableitung \(f’(x) = nx^{n-1}/) für alle \(n\) \in \(\C\) ist. Die Ableitung von \(\dfrac{1}{n+1} x^{n+1}\) ist demnach \(x^n\), folglich ist \dfrac{1}{n+1} x^{n+1}\) Stammfunktion von \(x^n\). Umgangssprachlich spricht man wegen diesem einfachen Zusammenhang auch von “Aufleiten”. Die Relation gilt wohlgemerkt für alle komplexen \(n\) außer \(-1\), also auch für z.B. Wurzeln mit \(n = \dfrac{1}{2}\) oder für negative Exponenten wie \(x^{-2} = \dfrac{1}{x^2}\). Im Spezialfall \(n = -1\) ist diese Stammfunktion nicht anwendbar, da dann durch Null geteilt würde. Gibt es eine andere Funktion, deren Ableitung \(\dfrac{1}{x}\) ist? Ja, nämlich den natürlichen Logarithmus \(\ln{x}\).</p>
 
-Auch die Stammfunktionen der trigonometrischen Funktionen sin(x) und cos(x) lassen sich vergleichsweise einfach bestimmen, siehe folgende Abbildung:
+<p>Auch die Stammfunktionen der trigonometrischen Funktionen \(\sin{x}\) und \(\cos{x}\) lassen sich vergleichsweise einfach bestimmen, siehe folgende Abbildung:
 
-// Bild mit “Kreislauf” sin(x)->cos(x)->-sin(x)->-cos(x)->sin(x) und Pfeilen in beide Richtungen (Ableiten und Integrieren)
+<!-- Bild mit “Kreislauf” sin(x)->cos(x)->-sin(x)->-cos(x)->sin(x) und Pfeilen in beide Richtungen (Ableiten und Integrieren) --></p>
 
-Partielle Integration
-Es gibt zwei Techniken, die beim Lösen von Integralen hilfreich sind: Partielle Integration und Substitution. Beide Techniken lösen das Integral nicht, sondern formen es in ein anderes Integral um, das - so die Hoffnung - einfacher zu lösen ist. Beide Techniken basieren auf Ableitungsregeln: Die Partielle Integration folgt aus der Produktregel, die Substitution aus der Kettenregel.
+<h2>Partielle Integration</h2>
+<p>Es gibt zwei Techniken, die beim Lösen von Integralen hilfreich sind: Partielle Integration und Substitution. Beide Techniken lösen das Integral nicht, sondern formen es in ein anderes Integral um, das - so die Hoffnung - einfacher zu lösen ist. Beide Techniken basieren auf Ableitungsregeln: Die Partielle Integration folgt aus der Produktregel, die Substitution aus der Kettenregel.</p>
 
-Partielle Integration - Herleitung
+<h3>Partielle Integration - Herleitung</h3>
 
-Die Produktregel für Ableitungen besagt:
+<p>Die Produktregel für Ableitungen besagt:
 
-(f\cdot g)’(x) = f’(x)\cdot g(x) + f(x)\cdot g’(x)
+\[(f\cdot g)’(x) = f’(x)\cdot g(x) + f(x)\cdot g’(x)\]
 
-Integrieren wir nun auf beiden Seiten nach x im Intervall [a,b], dann erhalten wir
+Integrieren wir nun auf beiden Seiten nach x im Intervall \([a,b]\), dann erhalten wir
 
-\int_a^b dx (f\cdot g)’(x) = \int_a^b dx f’(x)\cdot g(x) + \int_a^b dx f(x)\cdot g’(x)
+\[\int_a^b {\rm d}x (f\cdot g)’(x) = \int_a^b {\rm d}x f’(x)\cdot g(x) + \int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
 Die linke Seite lässt sich ausintegrieren, da im Integranden eine totale Ableitung steht:
 
-[f(x)\cdot g(x)]^a_b = \int_a^b dx f’(x)\cdot g(x) + \int_a^b dx f(x)\cdot g’(x)
+\[[f(x)\cdot g(x)]^a_b = \int_a^b {\rm d}x f’(x)\cdot g(x) + \int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
 Nun können wir die Gleichung nach dem ersten Integral auflösen, indem wir das zweite Integral auf die andere Seite bringen:
 
-\int_a^b dx f’(x)\cdot g(x) = [f(x)\cdot g(x)]^a_b - \int_a^b dx f(x)\cdot g’(x)
+\[\int_a^b {\rm d}x f’(x)\cdot g(x) = [f(x)\cdot g(x)]^a_b - \int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
 Dies ist die Formel der partiellen Integration. Sie ist unter folgenden Umständen hilfreich:
 
-Der Integrand lässt sich als Produkt zweier Funktionen f’(x) und g(x) schreiben.
-Für eine der Funktionen (nämlich f’(x)) ist die Stammfunktion f(x) bekannt.
-Das Integral  \int dx f(x)\cdot g’(x) ist einfacher zu berechnen, als das ursprüngliche Integral \int dx f’(x)\cdot g(x).
+Der Integrand lässt sich als Produkt zweier Funktionen \(f’(x)\) und \(g(x)\) schreiben.
+Für eine der Funktionen (nämlich \(f’(x)\)) ist die Stammfunktion \(f(x)\) bekannt.
+Das Integral \(\int {\rm d}x f(x)\cdot g’(x)\) ist einfacher zu berechnen als das ursprüngliche Integral \(\int {\rm d}x \(f’(x)\cdot g(x)\).</p>
 	
 	<script>
 		clickableBoxes();
