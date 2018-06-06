@@ -109,7 +109,7 @@
 	nennt man das Integral der Geschwindigkeit nach der Zeit und 
 	schreibt ihn als
 
-	\[s=\int_{t_{\rm Anfang}}^{t_{\rm Ende}} {\rm d}s = 
+	\[s=\int_{s_{\rm Anfang}}^{s_{\rm Ende}} {\rm d}s = 
 	\int_{t_{\rm Anfang}}^{t_{\rm Ende}} v(t){\rm d}t\]
 
 	Das Integrationszeichen ist ein stilisiertes S (für Summe), da die 
@@ -120,39 +120,25 @@
 	(überabzählbar ist). Es werden nur noch die Grenzen des 
 	Gesamtintervalls \(t_{\rm Anfang}\) und \(t_{\rm Ende}\) angegeben.
 	</p>
+	
+	<p>Wir sehen aus den vorangehenden Überlegungen: Die Motivation für Integrale kommt aus der Physik. Immer dann, wenn wir eine physikalische Größe gerne als Produkt zweier anderen Größen schreiben würden, das jedoch nicht möglich ist, weil eine von ihnen von der anderen abhängt, kommt ein Integral ins Spiel. So ist die zurückgelegte Strecke \(s\) das Integral über die Geschwindigkeit \(v(t)\) nach der Zeit \(t\), sobald die Geschwindigkeit von der Zeit abhängt, und somit der Produktansatz \(s=v\cdot t\) nicht mehr anwendbar ist.</p>
 
 
 	<h2>Integrale – Stammfunktion und Lösung</h2>
 
-	<p>Es stellt sich die Frage, in welchem Zusammenhang \(s(t)\) und
-	\(v(t)\) stehen. Die Geschwindigkeit \(v(t)\) gibt zu jedem 
-	Zeitpunkt die momentane Änderung der Strecke an, es gilt also:
+	<p>Es stellt sich nun die Frage: Wie lassen sich Integrale ausführen? Das Aufsummieren von unendlich vielen Rechtecksflächen sieht nicht sehr praktikabel aus. Aus der Schulmathematik ist aber vielleicht schon bekannt, dass das Integrieren die umgekehrte Operation zum Ableiten ist. Warum ist es aber so - was ist der Zusammenhang zwischen dem Berechnen der Fläche unter dem Graphen einer Funktion und dem "umgekehrten Ableiten" dieser Funktion? Diesen Zusammenhang stellt der Hauptsatz der Differential- und Integralrechnung (kurz HDI) her. Um diesen Satz zu formulieren, brauchen wir die Definition der Stammfunktion:</p>
+	
+	<p><b>Definition:</b> Zu einer Funktion \(f\) heißt eine Funktion \(F\) <b>Stammfunktion von \(f\)</b>, wenn gilt \[F'(x)=f(x)\]</p>
+	
+	<p><b>Anmerkung:</b> Eine Stammfunktion ist nicht eindeutig. Beim Ableiten fallen additive Konstanten weg, ist also \(F\) eine Stammfunktion einer Funktion \(f\), dann ist auch \(\tilde F = F+c\) eine Stammfunktion von \(f\), denn \[\tilde F'(x)=(F+c)'(x)=F'(x)=f\] <b>Beispiel:</b> \(F(x)=x^2-3\) ist eine Stammfunktion von \(f(x)=2x\), denn \(F'(x)=2x\). Aber auch \(\tilde F(x)=x^2+5\) ist eine Stammfunktion von \(f(x)\). Es gilt \(\tilde F(x)=F(x)+8\)</p>
+	<!--Abbildung zum angeführten Beispiel-->
+	<p>Nun können wir den HDI formulieren:</p>
+	
+	<p><b>Satz (Hauptsatz der Differential- und Integralrechnung):</b> Für eine Funktion \(f\) und eine Stammfunktion \(F\) von \(f\) gilt: \[\int_a^bf(x){\rm d}x = F(b)-F(a)\]</p>
 
-	\[v(t) = \dot{s} = \dfrac{{\rm d}s}{{\rm d}t}\]
-
-	Wegen dieser Relation nennt man \(s(t)\) auch Stammfunktion von
-	\(v(t)\).</p>
-
-	<p>Ist die momentane Änderung der Strecke zu jedem Zeitpunkt
-	bekannt, lässt sich die in einem bestimmten Zeitraum insgesamt
-	zurückgelegte Strecke leicht bestimmen: Das Integral über einen 
-	Zeitraum \([t_{\rm Anfang}, t_{\rm Ende}]\) gibt uns dann die 
-	Gesamtstrecke, die in diesem Zeitraum zurückgelegt wurde.
-
-	\[s = \int_{t_{\rm Anfang}}^{t_{\rm Ende}} v(t){\rm d}t =
-	s(t_{\rm Ende}) - s(t_{\rm Anfang})\]
-	</p>
-
-	<p>Der Schlüssel zur Lösung des Integrals liegt also in der 
-	Stammfunktion. Allgemeiner: Nehmen wir an, zur Funktion \(f(x)\) 
-	gibt es eine Funktion \(F(x)\), für die für alle \(x\) im 
-	Definitionsbereich von \(f(x)\) gilt:
-
-	\[F’(x) = f(x)\]
+	<p><b>Anmerkung:</b> Mit dem HDI haben wir nun ein Werkzeug, um Integrale auszuführen, ohne unendliche Summen berechnen zu müssen. Es reicht eine Stammfunktion der zu integrierenden Funktion zu finden.</p>
 
 	<!-- f(x) als Momentanänderung, bekannt an jedem Punkt zwischen a und b => Integral als Gesamtänderung -->
-
-	\(F(x)\) nennt man dann Stammfunktion von \(f(x)\). 
 
 <!-- Wie ausführlich soll auf den HDI eingegangen werden? Reicht ein Verweis auf MFNF?
 	Die Fläche einer der infinitesimal kleinen Rechtecksflächen lässt sich über den Differentialquotienten von F(x) ausdrücken:
@@ -163,13 +149,6 @@
 // Wendet man diese Methode für alle Rechtecksflächen im Intervall [a, b] an, kürzen sich 
 // sämtliche Summanden außer F(b) und F(a) weg. Als Ergebnis des Integrals bleibt dann
 // \int_a^b f(x) dx = F(b) - F(a) stehen. -->
-	Zur Berechnung des Integrals von \(f(x)\) gilt dann:
-
-	\[\int_a^b f(x) {\rm d}x = F(b) - F(a)\]
-
-	Die Lösung des Integrals errechnet sich also aus der Differenz der 
-	Funktionswerte der Stammfunktion am End- und Startpunkt der 
-	Integration.</p>
 
 	<p>Nun also zur eigentlichen Lösung eines Integrals. Das Aufstellen 
 	der Stammfunktion erweist sich nicht immer als trivial, aber es gibt
