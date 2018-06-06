@@ -124,16 +124,35 @@
 
 	<h2>Integrale – Stammfunktion und Lösung</h2>
 
-	<p>Der Schlüssel zur Lösung des Integrals liegt in der so genannten 
-	Stammfunktion. Nehmen wir an, zur Funktion \(f(x)\) gibt es eine 
-	Funktion \(F(x)\), für die für alle \(x\) im Definitionsbereich von
-       	\(f(x)\) gilt:
+	<p>Es stellt sich die Frage, in welchem Zusammenhang \(s(t)\) und
+	\(v(t)\) stehen. Die Geschwindigkeit \(v(t)\) gibt zu jedem 
+	Zeitpunkt die momentane Änderung der Strecke an, es gilt also:
+
+	\[v(t) = \dot{s} = \dfrac{{\rm d}s}{{\rm d}t}\]
+
+	Wegen dieser Relation nennt man \(s(t)\) auch Stammfunktion von
+	\(v(t)\).</p>
+
+	<p>Ist die momentane Änderung der Strecke zu jedem Zeitpunkt
+	bekannt, lässt sich die in einem bestimmten Zeitraum insgesamt
+	zurückgelegte Strecke leicht bestimmen: Das Integral über einen 
+	Zeitraum \([t_{\rm Anfang}, t_{\rm Ende}]\) gibt uns dann die 
+	Gesamtstrecke, die in diesem Zeitraum zurückgelegt wurde.
+
+	\[s = \int_{t_{\rm Anfang}}^{t_{\rm Ende}} v(t){\rm d}t =
+	s(t_{\rm Ende}) - s(t_{\rm Anfang})\]
+	</p>
+
+	<p>Der Schlüssel zur Lösung des Integrals liegt also in der 
+	Stammfunktion. Allgemeiner: Nehmen wir an, zur Funktion \(f(x)\) 
+	gibt es eine Funktion \(F(x)\), für die für alle \(x\) im 
+	Definitionsbereich von \(f(x)\) gilt:
 
 	\[F’(x) = f(x)\]
 
 	<!-- f(x) als Momentanänderung, bekannt an jedem Punkt zwischen a und b => Integral als Gesamtänderung -->
 
-	\(F(x)\) nennt man dann die Stammfunktion von \(f(x)\). 
+	\(F(x)\) nennt man dann Stammfunktion von \(f(x)\). 
 
 <!-- Wie ausführlich soll auf den HDI eingegangen werden? Reicht ein Verweis auf MFNF?
 	Die Fläche einer der infinitesimal kleinen Rechtecksflächen lässt sich über den Differentialquotienten von F(x) ausdrücken:
@@ -145,16 +164,18 @@
 // sämtliche Summanden außer F(b) und F(a) weg. Als Ergebnis des Integrals bleibt dann
 // \int_a^b f(x) dx = F(b) - F(a) stehen. -->
 	Zur Berechnung des Integrals von \(f(x)\) gilt dann:
+
 	\[\int_a^b f(x) {\rm d}x = F(b) - F(a)\]
+
 	Die Lösung des Integrals errechnet sich also aus der Differenz der 
 	Funktionswerte der Stammfunktion am End- und Startpunkt der 
 	Integration.</p>
 
 	<p>Nun also zur eigentlichen Lösung eines Integrals. Das Aufstellen 
 	der Stammfunktion erweist sich nicht immer als trivial, aber es gibt
-       	eine Reihe von Tricks, die diese Herausforderung vereinfachen.
+	eine Reihe von Tricks, die diese Herausforderung vereinfachen.</p>
 
-	Zunächst ist es immer sinnvoll, multiplikative Konstanten zu 
+	<p>Zunächst ist es immer sinnvoll, multiplikative Konstanten zu 
 	erkennen, welche nicht von der Integrationsvariablen abhängen. 
 	Diese können dann vor das Integral gezogen werden. </p>
 
@@ -195,13 +216,19 @@
 
 <!-- Bild mit “Kreislauf” sin(x)->cos(x)->-sin(x)->-cos(x)->sin(x) und Pfeilen in beide Richtungen (Ableiten und Integrieren) --></p>
 
+	<p>Für schwierigere Integrale gibt es zwei Techniken, die beim
+	Lösen hilfreich sind: Partielle Integration und Integration durch
+	Substitution. Beide Techniken lösen das Integral nicht, sondern
+	formen es in ein anderes Integral um, das – so die Hoffnung …
+	einfacher zu lösen ist. Beide Techniken basieren auf den 
+	Ableitungsregeln: Die partielle Integration folgt aus der
+	Produktregel, die Substitution aus der Kettenregel.</p>
+
 	<h2>Partielle Integration</h2>
-	<p>Es gibt zwei Techniken, die beim Lösen von Integralen hilfreich 
-	sind: Partielle Integration und Substitution. Beide Techniken lösen 
-	das Integral nicht, sondern formen es in ein anderes Integral um, 
-	das – so die Hoffnung – einfacher zu lösen ist. Beide Techniken 
-	basieren auf Ableitungsregeln: Die Partielle Integration folgt aus 
-	der Produktregel, die Substitution aus der Kettenregel.</p>
+	<p>Die partielle Integration bietet eine Möglichkeit, das Integral
+	eines Produkts zweier Funktionen zu bestimmen. Die Formel leitet
+	sich – wie bereits erwähnt – aus der Produktregel ab.
+
 
 	<h3>Partielle Integration – Herleitung</h3>
 
@@ -258,12 +285,18 @@
 		demnach ist \(u(x) = -\cos{x}\) und \(v'(x) = \cos{x}\).
 		Unser Integral vereinfacht sich also zu
 		\[
-		\int \sin^2{x}{\rm d}x = -\sin{x}\cos{x} -
+		\begin{align}
+		&& \int \sin^2{x}{\rm d}x & = -\sin{x}\cos{x} -
 		\int -\cos^2{x}{\rm d}x \\
-		= -\sin{x}\cos{x} + \int \cos^2{x}{\rm d}x \\
-		= -\sin{x}\cos{x} + \int (1-\sin^2{x}){\rm d}x \\
-		= -\sin{x}\cos{x} + \int {\rm d}x - \int \sin^2{x}{\rm d}x \\
-		= -\sin{x}\cos{x} + x - \int \sin^2{x}{\rm d}x
+		&&& = -\sin{x}\cos{x} + \int \cos^2{x}{\rm d}x \\
+		&&& = -\sin{x}\cos{x} + \int (1-\sin^2{x}){\rm d}x \\
+		&&& = -\sin{x}\cos{x} + \int {\rm d}x - \int \sin^2{x}{\rm d}x \\
+		&&& = -\sin{x}\cos{x} + x - \int \sin^2{x}{\rm d}x \\
+		& \Leftrightarrow & 2\int \sin^2{x}{\rm d}x & =
+		x-\sin{x}\cos{x} \\
+		& \Leftrightarrow & \int \sin^2{x}{\rm d}x & =
+		\dfrac{x-\sin{x}\cos{x}}{2} + C
+		\end{align}
 		\]
 		</p>
 	</div>
