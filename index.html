@@ -154,25 +154,6 @@
 	der Stammfunktion erweist sich nicht immer als trivial, aber es gibt
 	eine Reihe von Tricks, die diese Herausforderung vereinfachen.</p>
 
-	<p>Zunächst ist es immer sinnvoll, multiplikative Konstanten zu 
-	erkennen, welche nicht von der Integrationsvariablen abhängen. 
-	Diese können dann vor das Integral gezogen werden. </p>
-
-	<button class="collapsible">Beispiel 1: \(f(x) = 2x\)</button>
-	<div class="content">
-		<p>\(\int_a^b f(x) {\rm d}x = \int_a^b 2x {\rm d}x = 
-		2\int_a^b x {\rm d}x\)</p>
-	</div>
-
-	<button class="collapsible">Beispiel 2: \(g(x, y) = x^2\cdot y^2\)</button>
-	<div class="content">
-		<p>\(\int_a^b g(x, y) {\rm d}y = 
-		\int_a^b x^2\cdot y^2 {\rm d}y = 
-		x^2\cdot \int_a^b y^2 {\rm d}y\)<br>
-		Diese Separation ist nur gültig, wenn \(x\) nicht von \(y\) 
-		abhängt!</p>
-	</div>
-
 	<p>Für manche Funktionen wie Potenzfunktionen lässt sich die 
 	Stammfunktion sehr einfach bestimmen, indem man sich fragt: “Welche 
 	Funktion ergibt abgeleitet \(f(x)\)?” Wir wissen, dass für eine 
@@ -195,6 +176,174 @@
 
 <!-- Bild mit “Kreislauf” sin(x)->cos(x)->-sin(x)->-cos(x)->sin(x) und Pfeilen in beide Richtungen (Ableiten und Integrieren) --></p>
 
+	<p>Hier ist eine Übersicht von Integralen einfacher Funktionen:</p>
+	
+	\[
+	\begin{array}{|c|c|l|}
+	\hline
+	f(x) & F(x) & \text{Anmerkung}\\ \hline
+	 x^n & \frac{1}{n+1}x^{n+1} + C & \text{falls } n\in \mathbb{R}\backslash\{-1\}\\ \hline
+	 \frac{1}{x} & \ln(|x|) + C & \\ \hline
+	 e^x & e^x + C & \\ \hline
+	 \sin(x) & -\cos(x) + C & \\ \hline
+	 \cos(x) & \sin(x) + C & \\ \hline
+	\end{array}
+	\]
+	
+	<h2>Stammfunktionen zusammengesetzter Funktionen</h2>
+	
+	<p>Häufig hat man es mit komplexeren, zusammengesetzten Funktionen zu tun.
+	Wie kann für eine solche Funktion die Stammfunktion gefunden werden?</p>
+	
+	<p>Nun da wir wissen, dass das Integrieren die inverse Operation zum
+	Ableiten ist, liegt es nahe, dass Ableitungsregeln sich aufs Integrieren
+	übertragen lassen.</p>
+	
+	<p>Die folgende Tabelle zeigt eine Liste der Ableitungsregeln und der 
+	zugehörigen Integrationsregeln:</p>
+	
+	\[
+	\begin{array}{|l|l|}
+	\hline
+	\text{Ableitungsregel} & \text{Zugehörige Integrationsregel} \\
+	\hline
+	{\text{Additivität der Ableitung}\\ \displaystyle(f+g)'(x) = f'(x)+g'(x)} & 
+	{\text{Additivität des Integrals}\\ \displaystyle\int_a^b f(x)+g(x) {\rm d}x 
+	= \int_a^b f(x){\rm d}x + \int_a^b g(x){\rm d}x} \\
+	\hline
+	{\text{Homogenität der Ableitung}\\ \displaystyle(c\cdot f)'(x) = c\cdot
+	f'(x)} & 
+	{\text{Homogenität des Integrals}\\ \displaystyle\int_a^b c\cdot f(x){\rm d}x 
+	= c\cdot \int_a^b f(x){\rm d}x}\\
+	\hline
+	{\text{Produktregel}\\ \displaystyle(f\cdot g)'(x) = f'(x)\cdot g(x) + f(x)
+	\cdot g'(x)} & 
+	{\text{Partielle Integration}\\ \displaystyle\int_a^b f’(x)\cdot g(x) 
+	{\rm d}x  = [f(x)\cdot g(x)]_a^b - \int_a^b f(x)\cdot g’(x) {\rm d}x }\\
+	\hline		
+	{\text{Kettenregel}\\ \displaystyle(f\circ g)'(x) = f'(g(x))\cdot g'(x) } & 
+	{\text{Integration mittels Substitution}\\ \displaystyle\int_a^b f(g(x))
+	\cdot g’(x){\rm d}x = \int_{g(a)}^{g(b)}f(g(x)) {\rm d}g }\\
+	\hline	
+	\end{array}
+	\]	
+	
+	<p>Die Integrationsregeln werden im Folgenden aus den Ableitungsregeln 
+	hergeleitet und ihre Anwendung durch einige Beispiele illustriert.</p>
+	
+	<h3>Auseinander- und Zusammenziehen von Summen (Additivität des Integrals)
+	</h3>
+	
+	<p>Für Ableitungen gilt: Die Ableitung einer Summe zweier Funktionen ist 
+	die Summe ihrer Ableitungen. Ist also eine Funktion \(H\) die Summe der 
+	Funktionen \(F\) und \(G\), sodass also \(H(x)=F(x)+G(x)\) gilt, dann ist 
+	auch ihre Ableitung gleich der Summe der Ableitungen von \(F\) und \(G\):
+	</p>
+	
+	\[H'(x) = (F+G)'(x) = F'(x)+G'(x)\]
+	
+	<p>Nutzen wir nun diese Eigenschaft der Ableitungen, um die zugehörige 
+	Eigenschaft des Integrals zu finden. Wir suchen die Stammfunktion zur 
+	Funktion \(h(x)=f(x)+g(x)\), wobei die Stammfunktion von \(f\) durch 
+	\(F\) und die von \(g\) durch \(G\) gegeben ist. Es drängt sich der 
+	Gedanke auf, dass die Stammfunktionen \(H\) von \(h\) mittels</p>
+	
+	\[H(x) = (F+G)(x) = F(x)+G(x)\]
+	
+	<p>bestimmt werden kann. Damit würde gelten:</p>
+	
+	\[\int f(x) + g(x) {\rm d}x = \int f(x){\rm d}x + \int g(x) {\rm d}x\]
+	
+	<p>Wichtig: An der Stelle, ist es lediglich ein Ansatz, der sinnvoll 
+	erscheint, aber nicht notwendigerweise richtig sein muss! Wir können 
+	jedoch leicht beweisen, dass er richtig ist, dafür müssen wir lediglich 
+	zeigen, dass \(H\) die definierende Eigenschaft einer Stammfunktion, 
+	\(H'(x)=h(x)\) erfüllt. Das ist tatsächlich der Fall, denn</p>
+	
+	\[H'(x) = F'(x)+G'(x) = f(x)+g(x) = h(x)\]
+	
+	<p>\(H\) ist also tatsächlich eine Stammfunktion von \(h\)!</p>
+	
+	<p>Betrachten wir einige Beispiele für das Auseinander- und Zusammenziehen
+	von Summen:</p>
+	
+	<button class="collapsible">
+		Beispiel 1: \(\displaystyle I(x) = \int (x^2+x+1) {\rm d}x\)
+	</button>
+	<div class="content">
+		<p>\(\displaystyle I(x) = \int (x^2+x+1) {\rm d}x\)
+			\(\displaystyle = \int x^2 {\rm d}x + \int x {\rm d}x + 
+			\int 1 {\rm d}x\) 
+			\(\displaystyle = \frac{1}{3} x^3 + \frac{1}{2} x^2 + x
+			 + C\)</p>
+		<p>Hier konnten wir das Integral über eine zusammengesetzte 
+		Funktion in Integrale über einfache Funktionen aufzuspalten.</p>
+	</div>
+
+	<button class="collapsible">
+		Beispiel 2: \(\displaystyle I(x) = \int \frac{4x+4}{(x+2)^2} 
+		{\rm d}x + \int \frac{x^2}{(x+2)^2} {\rm d}x \)
+	</button>
+	<div class="content">
+		<p>\(\displaystyle I(x) = \int \frac{4x+4}{(x+2)^2} 
+		{\rm d}x + \int \frac{x^2}{(x+2)^2} {\rm d}x\)
+		\(\displaystyle = \int \frac{4x+4}{(x+2)^2} + \frac{x^2}{(x+2)^2}
+		 {\rm d}x\)
+		\(\displaystyle = \int \frac{x^2+4x+4}{(x+2)^2} {\rm d}x\)
+		\(\displaystyle = \int 1 {\rm d}x = x + C \)</p>
+		<p>In diesem (zugegebenermaßen recht konstruierten) Beispiel 
+		ließ sich das Integral über die Summe zweier Integranden viel 
+		einfacher berechnen, als über die beiden Integranden getrennt.</p>
+	</div>
+
+	<h3>Heraus- und Hineinziehen von Konstanten (Homogenität des Integrals)</h3>
+	
+	<p>Für Ableitungen gilt: Konstante Vorfaktoren können aus einer Ableitung 
+	herausgezogen werden. Ist also \(G(x) = c\cdot F(x)\) für Funktionen \(F\) 
+	und \(G\) sowie eine Konstante \(c\), dann gilt:</p>
+	
+	\[G'(x) = (c\cdot F)'(x) = c\cdot F'(x)\]
+	
+	<p>Nutzen wir nun diese Eigenschaft der Ableitungen, um die zugehörige 
+	Eigenschaft des Integrals zu finden. Wir suchen die Stammfunktion zur 
+	Funktion \(g(x)=c\cdot f(x)\), wobei die Stammfunktion von \(f\) durch 
+	\(F\) gegeben ist. Nun könnte man auf die Idee kommen, dass die 
+	Stammfunktionen \(G\) von \(g\) mittels</p>
+	
+	\[G(x) = (c\cdot F)(x) = c\cdot F(x)\]
+	
+	<p>bestimmt werden kann. Damit würde gelten:</p>
+	
+	\[\int c\cdot f(x) {\rm d}x = c\cdot \int f(x){\rm d}x\]
+	
+	<p>Beweisen wir, dass unser Ansatz für die Stammfunktion von \(g\) 
+	tatsächlich richtig ist. Das ist der Fall, denn</p>
+	
+	\[G'(x) = (c\cdot F)'(x)= c\cdot F'(x) = c\cdot f(x) = g(x)\]
+	
+	<p>\(G\) ist also tatsächlich eine Stammfunktion von \(g\).</p>
+	
+	
+	<p>Betrachten wir nun einige Beispiele für das Herausziehen von 
+	multiplikativen Konstanten. Zunächst ist es sinnvoll, multiplikative 
+	Konstanten zu identifizieren, welche nicht von der Integrationsvariablen
+	abhängen. Diese können dann vor das Integral gezogen werden. </p>
+
+	<button class="collapsible">Beispiel 1: \(f(x) = 2x\)</button>
+	<div class="content">
+		<p>\(\displaystyle \int_a^b f(x) {\rm d}x = \int_a^b 2x {\rm d}x = 
+		2\int_a^b x {\rm d}x\)</p>
+	</div>
+
+	<button class="collapsible">Beispiel 2: \(g(x, y) = x^2\cdot y^2\)</button>
+	<div class="content">
+		<p>\(\displaystyle \int_a^b g(x, y) {\rm d}y = 
+		\int_a^b x^2\cdot y^2 {\rm d}y = 
+		x^2\cdot \int_a^b y^2 {\rm d}y\)</p>
+		<p>Diese Separation ist nur gültig, wenn \(x\) nicht von \(y\) 
+		abhängt!</p>
+	</div>
+
 	<p>Für schwierigere Integrale gibt es zwei Techniken, die beim
 	Lösen hilfreich sind: Partielle Integration und Integration durch
 	Substitution. Beide Techniken lösen das Integral nicht, sondern
@@ -203,41 +352,38 @@
 	Ableitungsregeln: Die partielle Integration folgt aus der
 	Produktregel, die Substitution aus der Kettenregel.</p>
 
-	<h2>Partielle Integration</h2>
+	<h3>Partielle Integration</h3>
 	<p>Die partielle Integration bietet eine Möglichkeit, das Integral
 	eines Produkts zweier Funktionen zu bestimmen. Die Formel leitet
-	sich – wie bereits erwähnt – aus der Produktregel ab.
+	sich – wie bereits erwähnt – aus der Produktregel ab.</p>
 
-
-	<h3>Partielle Integration – Herleitung</h3>
-
-	<p>Die Produktregel für Ableitungen besagt:
+	<p>Die Produktregel für Ableitungen besagt:</p>
 
 	\[(f\cdot g)’(x) = f’(x)\cdot g(x) + f(x)\cdot g’(x)\]
 
-	Integrieren wir nun auf beiden Seiten über \(x\) im Intervall
-	\([a,b]\), dann erhalten wir
+	<p>Integrieren wir nun auf beiden Seiten über \(x\) im Intervall
+	\([a,b]\), dann erhalten wir</p>
 
 	\[\int_a^b {\rm d}x (f\cdot g)’(x) = 
 	\int_a^b {\rm d}x f’(x)\cdot g(x) + 
 	\int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
-	Die linke Seite lässt sich ausintegrieren, da im Integranden eine 
-	totale Ableitung steht:
+	<p>Die linke Seite lässt sich ausintegrieren, da im Integranden eine 
+	totale Ableitung steht:</p>
 
 	\[[f(x)\cdot g(x)]_a^b = 
 	\int_a^b {\rm d}x f’(x)\cdot g(x) + 
 	\int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
-	Nun können wir die Gleichung nach dem ersten Integral auflösen, 
-	indem wir das zweite Integral auf die andere Seite bringen:
+	<p>Nun können wir die Gleichung nach dem ersten Integral auflösen, 
+	indem wir das zweite Integral auf die andere Seite bringen:</p>
 
 	\[\int_a^b {\rm d}x f’(x)\cdot g(x) = 
 	[f(x)\cdot g(x)]_a^b - \int_a^b {\rm d}x f(x)\cdot g’(x)\]
 
 
-	Dies ist die Formel der partiellen Integration. Sie ist unter 
-	folgenden Umständen hilfreich:
+	<p>Dies ist die Formel der partiellen Integration. Sie ist unter 
+	folgenden Umständen hilfreich:</p>
 
 	<ul>
 	<li>Der Integrand lässt sich als Produkt zweier Funktionen \(f’(x)\)
@@ -252,7 +398,6 @@
 
 	<!-- Vorher noch unbestimmte und bestimmte Integrale einführen -->
 
-	<h3>Partielle Integration – Beispiele</h3>
 	<p>Einige Beispiele zur Anwendung der partiellen Integration:</p>
 	
 	<button class="collapsible">Beispiel 1: \(\int \sin^2{x}{\rm d}x\)</button>
